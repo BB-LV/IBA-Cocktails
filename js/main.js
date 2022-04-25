@@ -13,7 +13,7 @@
 const big3 = document.querySelectorAll('.big3Cont');
 const drinkNames = document.querySelectorAll('.cocktailLink');
 const drinkCards = document.querySelectorAll('.drinkCardCont');
-const dA = document.querySelector('.drinkArray');
+const dA = document.querySelectorAll('.drinkArray'); // const dA = document.querySelector('.drinkArray');
 const revealButtons = document.querySelectorAll('.revealButton');
 const convertButtons = document.querySelectorAll('.onoffswitch')
 const measures = document.querySelectorAll('.measure')
@@ -109,15 +109,21 @@ drinkNames.forEach(indDrink => {
     indDrink.addEventListener('click', clicked => {
         drinkCards.forEach(indDCard => {
             if(indDCard.dataset.dname == indDrink.dataset.dname){
-                if(dA.classList.contains('drinkArrayMoved')){
+                if(dA[0].classList.contains('drinkArrayMoved')){
                     if(!indDCard.classList.contains('drinkCardContNone')){  
-                        dA.classList.toggle('drinkArrayMoved');
+                        dA.forEach(drinkArr => {
+                            drinkArr.classList.toggle('drinkArrayMoved')
+                        });
                         indDCard.classList.toggle('drinkCardContNone');
                     }else{                                                
                         indDCard.classList.toggle('drinkCardContNone');
                     };
                 }else{
-                    dA.classList.toggle('drinkArrayMoved');
+                    dA.forEach(drinkArr2 => {
+                        if(!drinkArr2.classList.contains('drinkArrayMoved')){
+                            drinkArr2.classList.toggle('drinkArrayMoved')
+                        }
+                    })
                     indDCard.classList.toggle('drinkCardContNone');
                 };
             }else{
@@ -200,9 +206,7 @@ convertButtons.forEach(convBut => {
                 }
             })
         document.querySelectorAll('.onoffswitch-checkbox').forEach(checkbox => {
-            if(checkbox.hasAttribute('checked')){
-                 checkbox.removeAttribute('checked')
-            }
+            checkbox.toggleAttribute('checked');
         })
     })
 })  
