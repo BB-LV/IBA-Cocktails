@@ -305,13 +305,13 @@ header>h3>a {
      max-width: 33.333%
 }
 
-.measureSpan {
+/* .measureSpan {
      display: flex;
      align-self: center;
      font-size: 1.2rem;
      overflow: visible;
      white-space: nowrap;
-}
+} */
 
 .measure {
      display: flex;
@@ -378,6 +378,16 @@ header>h3>a {
 .garnishIng { 
      font-size: 2rem;
      text-align: center;
+}
+
+/* Text Container Shrink Class if Overflowing */
+
+.drinkCardTextContSmall span {
+     font-size: 1.2rem;
+}
+
+.methodTextSmall {
+     font-size: 1.5rem;
 }
 
 /*
