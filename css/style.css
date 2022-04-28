@@ -46,6 +46,7 @@ body {
      flex-flow: row wrap;
      width: 100%;
      background-color: black;
+     justify-content: center;
      height: 100vh;
      overflow: scroll;
      cursor: crosshair;
@@ -107,43 +108,61 @@ header>h3>a {
 }
 
 .headingContainer {
-     margin-top: 8rem;
      display: flex;
-     flex-flow: row wrap;
-     align-self: center;
-     justify-content: center;
-     align-items: flex-start;
-     align-content: flex-start;
-     height: 85vh;
-     transition-duration: 2000ms;
+     position:fixed;
+     top: 25vh;
+     flex-flow: column nowrap;
+}
+
+.headingContainerMovedF {
+     animation: contMovedF 1000ms cubic-bezier(.39,.99,.37,.72) forwards;
+}
+
+.headingContainerMovedInitial {
+     animation: contMovedInitial 1000ms cubic-bezier(.39,.99,.37,.72) forwards;
+}
+
+@keyframes contMovedF {
+     from {
+          transform:rotateX(0deg) translateY(0vh) translateX(0vw);
+     }
+     to {
+          perspective-origin: left;
+          perspective: 170rem;
+          transform:rotateX(6deg) translateY(-5vh) translateX(-20vw);
+     }
+}
+
+@keyframes contMovedInitial {
+     from {
+          transform:rotateX(6deg) translateY(-5vh) translateX(-20vw);
+     }
+     to {
+          transform:rotateX(0deg) translateY(0vh) translateX(0vw);
+     }
 }
 
 .big3Cont {
      display: flex;
      justify-content: center;
      align-items: center;
-     width: 51%;
      margin: 0px;
-     transition-duration:1300ms;
-     transition-delay: 100ms;
 }
 
 .big3 {
+     display: flex;
+     position: absolute;
      text-align: center;
      color: rgb(255, 255, 255);
-     display: flex;
      justify-content: center;
-     z-index: 1;
      align-items: center;
      font-size: 5rem;
      font-weight: 950;
      margin: 0px;
-     position: absolute;
      width: 15%;
      rotate: 355deg;
      font-family: 'Noto Serif', serif;
      white-space: nowrap;
-     transition: all 900ms;
 }
 
 .redStroke {
@@ -158,7 +177,7 @@ header>h3>a {
      transform: rotateY(40deg);
 }
 
-.big3ContHover:hover>.big3 {
+.big3hovered {
      scale: 1.5;
      transform: rotateY(40deg);
 }
@@ -168,33 +187,89 @@ header>h3>a {
      perspective: 75rem;
 }
 
-.big3ContMoved {
-     scale: 1;
+.clickedBig3 {
+     animation: big3Transform 500ms ease-in forwards; 
 }
 
-.headingContainerMoved {
-     width:auto;
-     perspective-origin: left;
-     perspective: 170rem;
-     transform:rotateX(6deg) translateY(-5rem) scale(1) translateX(-55rem);
+.clickedBig3Initial {
+     animation: big3TransformInitial 500ms ease-out forwards; 
 }
 
-.clickedbig3 {
-     scale: 1.2;
-     transform: rotateY(40deg) scale3d(1.5, 1, 1);
+@keyframes big3TransformInitial {
+     to {
+          scale: 1;
+          transform: rotateY(0deg) scale3d(1, 1, 1);
+     }
 }
-/* Drink Name Links */
+
+@keyframes big3Transform {
+     to {
+          scale: 1.2;
+          transform: rotateY(40deg) scale3d(1.5, 1, 1);
+     }
+}
+
+/*
+////////////////////
+////////////////////
+////////////////////
+
+// Individual Drink Names
+
+////////////////////
+////////////////////
+////////////////////
+*/
 
 .drinkArray {
      display: none;
-     position: absolute;
      flex-flow: row wrap;
-     justify-content: center;
-     align-self:center;
-     align-items: center;
-     align-content: space-between;
+     justify-content:space-around;
+     overflow: hidden;
      width: 40vw;
-     translate: 100rem 5rem;
+     height: 40vh;
+}
+
+.drinkArrayInitial {
+     display: flex;
+     animation: drinkArrayIntro 2s ease-in-out both;
+}
+
+@keyframes drinkArrayIntro {
+     0% {
+          transform: translate(-50vw, 100vh);
+          opacity: 0;
+     }
+     100% {
+          transform: translate(25vw, -10vh);
+          opacity: 1;
+     }
+}
+
+.drinkArrayFloat {
+     animation: drinkArrayFloatUp 1s ease-in both;
+}
+
+.drinkArrayDown {
+     animation: drinkArrayFloatDown 1s ease-in both;
+}
+
+@keyframes drinkArrayFloatUp {
+     0% {
+          transform: translate(25vw, -10vh)
+     }
+     100% {
+          transform: translate(28vw, -25vh)
+     }
+}
+
+@keyframes drinkArrayFloatDown {
+     0% {
+          transform: translate(28vw, -25vh)
+     }
+     100% {
+          transform: translate(25vw, -10vh)
+     }
 }
 
 .cocktailLink {
@@ -202,44 +277,90 @@ header>h3>a {
      font-size: 2rem;
      font-family: 'Roboto Mono', monospace;
      color:white;
-     margin: 1.3rem;
-     letter-spacing: 0.15rem;
-     transition-duration: 1000ms;
+     margin: 1rem;
+     letter-spacing: 0.05rem;
+
 }
 
-.drinkArrayMoved {
-     transform: translate(4rem, -20rem)
+.cocktailLinkClicked {
+     color: lightskyblue;
 }
 
-/* Main Drink Cards Array and Containers */
+/*
+////////////////////
+////////////////////
+////////////////////
+
+// Main Drink Cards Array and Containers
+
+////////////////////
+////////////////////
+////////////////////
+*/
+
 .drinkCardArray {
      position: absolute;
 }
 
 
 .drinkCardCont {
-     display: flex;
-     position:absolute;
+     display: none;
      flex-flow: row wrap;
-     translate: 90rem 65rem;
      height: 25rem;
-     width: 40vw;
+     width: 65rem;
      border-radius: 3rem;
      margin: 0px;
      padding: 0px;
-     z-index: 2;
      background: linear-gradient(0deg, rgba(182,182,182,1) 0%, rgba(142,142,142,1) 21%, rgba(128,128,128,1) 77%, rgba(95, 0, 0, 1) 82%, rgba(95, 0, 0, 1) 100%, rgba(50,50,50,1) 100%), grey;
+     position: absolute;
+     top: 60vh;
+     left: 5vw;
 }
 
-.drinkCardContNone {
-     display: none;
+.drinkCardIntro {
+     display: flex;
+     animation: drinkCardIntroAnimFirst 700ms linear both;
 }
 
-.drinkCardCont img {
-     height: inherit;
-     padding: 1rem;
-     max-width: 33.333%;
+.drinkCardSlideIn {
+     display:flex;
 }
+
+.drinkCardSlideOut {
+     display:none;
+}
+
+@keyframes drinkCardIntroAnimFirst {
+     0%{
+          transform: rotateX(90deg)
+     }
+     50%{
+          transform: rotateX(-90deg)
+     }
+     100%{
+          transform: rotateX(0deg)
+     }
+}
+
+@keyframes drinkCardSlideInAnim {
+     0%{
+
+     }100%{
+
+     }
+}
+
+@keyframes drinkCardExitAnim {
+     0%{
+
+     }
+     100%{
+
+     }
+}
+
+/*////////////////////////////////////////////////////////*/
+/* Drink Card Header */
 
 .drinkHeader {
      display: flex;
@@ -273,6 +394,8 @@ header>h3>a {
      margin-right: 2rem;
 }
 
+/* Drink Card Body */
+
 .secondHalfOfCard {
      display: flex;
      justify-content: space-around;
@@ -280,6 +403,16 @@ header>h3>a {
      width: 100%;
      flex-flow: row nowrap;
      align-items: center;
+}
+
+.drinkCardCont img {
+     height: inherit;
+     margin: 3rem;
+     max-width: 33.333%;
+     border-radius: 20%;
+     padding: 2rem;
+     background-size: cover;
+     background: radial-gradient(#BC0000, #FFEBEB);
 }
 
 .ingredCont {
@@ -304,14 +437,6 @@ header>h3>a {
      flex-wrap: nowrap;
      max-width: 33.333%
 }
-
-/* .measureSpan {
-     display: flex;
-     align-self: center;
-     font-size: 1.2rem;
-     overflow: visible;
-     white-space: nowrap;
-} */
 
 .measure {
      display: flex;
