@@ -76,9 +76,6 @@ big3.forEach(indHeader => {
                             drinkArr.classList.toggle('drinkArrayInitial')
                         }
                     })
-                    hideShowingCards();
-                    takeFloatOffArrays();
-                    removeCocktailLinkedClick();
                 }else{
                      // different header clicked (but the header is moved)
                     big3.forEach(indHeader3 => {
@@ -95,10 +92,10 @@ big3.forEach(indHeader => {
                             drinkArr2.classList.toggle('drinkArrayInitial')
                         }
                     })
-                    hideShowingCards();
-                    takeFloatOffArrays();
-                    removeCocktailLinkedClick();
                 }
+                hideShowingCards();
+                takeFloatOffArrays();
+                removeCocktailLinkedClick();
             }else{ // <-- Heading Container not moved, initial move to stage 2.
                 if(headingCont.classList.contains('headingContainerMovedInitial')){
                     headingCont.classList.toggle('headingContainerMovedInitial')
@@ -147,6 +144,11 @@ drinkNames.forEach(dName => {
                     dCard.classList.toggle('drinkCardSlideOut')
                 }
             }
+            /*
+            
+            */
+
+
             if(dCard.dataset.dname == dName.dataset.dname){
                 dA.forEach(drinkArray1 => {
                     if(drinkArray1.classList.contains('drinkArrayInitial')){

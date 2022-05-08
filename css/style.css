@@ -10,7 +10,7 @@
     -Colors
      -White
      -Black
-     -Red (dull) - 5f0000
+     -Red (dull) - #5f0000
      -Grey on Card is a Gradient
 
 */
@@ -311,7 +311,8 @@ header>h3>a {
      border-radius: 3rem;
      margin: 0px;
      padding: 0px;
-     background: linear-gradient(0deg, rgba(182,182,182,1) 0%, rgba(142,142,142,1) 21%, rgba(128,128,128,1) 77%, rgba(95, 0, 0, 1) 82%, rgba(95, 0, 0, 1) 100%, rgba(50,50,50,1) 100%), grey;
+     background: radial-gradient(ellipse farthest-corner at bottom left, #5f0000 30%, #b40000 90%);
+     border: 1rem solid #b40000;
      position: absolute;
      top: 60vh;
      left: 5vw;
@@ -367,7 +368,7 @@ header>h3>a {
      flex-flow: row nowrap;
      height: 5rem;
      width:100%;
-     justify-content: space-between;
+     justify-content: center;
      align-items: center;
      border-radius: 5% 5% 0% 0%;
 }
@@ -377,19 +378,18 @@ header>h3>a {
      color: white;
      text-decoration: none;
      margin: 0px;
-     height: 5rem;
      justify-content: flex-start;
 }
 
 .drinkName {
      display: flex;
      font-size: 3.5rem;
-     margin-left: 40%;
-     height: 5rem;
 }
 
 .revealButton {
      display: flex;
+     position: fixed;
+     left: 75%;
      justify-content: flex-end;
      margin-right: 2rem;
 }
@@ -399,7 +399,7 @@ header>h3>a {
 .secondHalfOfCard {
      display: flex;
      justify-content: space-around;
-     height: 20rem;
+     height: 18rem;
      width: 100%;
      flex-flow: row nowrap;
      align-items: center;
@@ -407,12 +407,9 @@ header>h3>a {
 
 .drinkCardCont img {
      height: inherit;
-     margin: 3rem;
-     max-width: 33.333%;
-     border-radius: 20%;
-     padding: 2rem;
-     background-size: cover;
-     background: radial-gradient(#BC0000, #FFEBEB);
+     border-radius: 10%;
+     margin-left: -13rem;
+     margin-bottom: 7rem;
 }
 
 .ingredCont {
@@ -429,13 +426,9 @@ header>h3>a {
 
 .measureCont {
      display: flex;
-     padding: 1rem;
      flex-direction: column;
-     justify-content: space-around;
      align-items: center;
-     height: inherit;
-     flex-wrap: nowrap;
-     max-width: 33.333%
+     height:18rem;
 }
 
 .measure {
@@ -511,7 +504,7 @@ header>h3>a {
      font-size: 1.2rem;
 }
 
-.methodTextSmall {
+.methodTextSmall {  /* Also for Ingredient*/
      font-size: 1.5rem;
 }
 
