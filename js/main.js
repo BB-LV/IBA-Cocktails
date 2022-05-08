@@ -13,7 +13,7 @@
 const big3 = document.querySelectorAll('.big3Cont');
 const drinkNames = document.querySelectorAll('.cocktailLink');
 const drinkCards = document.querySelectorAll('.drinkCardCont');
-const dA = document.querySelectorAll('.drinkArray'); // const dA = document.querySelector('.drinkArray');
+const dA = document.querySelectorAll('.drinkArray');
 const revealButtons = document.querySelectorAll('.revealButton');
 const convertButtons = document.querySelectorAll('.onoffswitch')
 const measures = document.querySelectorAll('.measure')
@@ -144,14 +144,16 @@ drinkNames.forEach(dName => {
                     dCard.classList.toggle('drinkCardSlideOut')
                 }
             }
-            /*
-            
-            */
-
-
+            function removeSlideOut(){ // <-- removes drinkCardSlideOut class for any card with it.
+                drinkCards.forEach(dCard1 => {
+                    if(dCard1.classList.contains('drinkCardSlideOut')){
+                        dCard1.classList.toggle('drinkCardSlideOut');
+                    }
+                })
+            }
             if(dCard.dataset.dname == dName.dataset.dname){
                 dA.forEach(drinkArray1 => {
-                    if(drinkArray1.classList.contains('drinkArrayInitial')){
+                    if(drinkArray1.classList.contains('drinkArrayInitial')){ // big3 function gave the array this
                         if(!drinkArray1.classList.contains('drinkArrayFloat')){
                             // its assumed this is initial stage 2
                             if(dCard.classList.contains('drinkCardSlideOut')){
@@ -169,7 +171,7 @@ drinkNames.forEach(dName => {
                                 drinkArray1.classList.toggle('drinkArrayFloat');
                                 drinkArray1.classList.toggle('drinkArrayDown');
                             }else{
-                                cardExit();
+                                removeSlideOut();
                                 dCard.classList.toggle('drinkCardSlideIn');
                                 drinkNames.forEach(name2 => {
                                     if(name2.classList.contains('cocktailLinkClicked')){
@@ -203,7 +205,7 @@ drinkNames.forEach(dName => {
 revealButtons.forEach(indButton => {
     indButton.addEventListener('click', buttonClicked => {
         drinkCards.forEach(indDCard2 => {
-            if(indDCard2.classList.contains('drinkCardIntro')){
+            if(indDCard2.classList.contains('drinkCardIntro') || indDCard2.classList.contains('drinkCardSlideIn')){
                 for(let count = 0; count <indDCard2.children.length; count++){
                     if(indDCard2.children[count].classList.contains('methodCont')){
                         indDCard2.children[count].classList.toggle('methodContNone');
@@ -213,6 +215,20 @@ revealButtons.forEach(indButton => {
         })
     })
 });
+
+// revealButtons.forEach(indButton => {
+//     indButton.addEventListener('click', buttonClicked => {
+//         drinkCards.forEach(indDCard2 => {
+//             if(indDCard2.classList.contains('drinkCardIntro') || indDCard2.classList.contains('drinkCardSlideIn')){
+//                 for(let count = 0; count <indDCard2.children.length; count++){
+//                     if(indDCard2.children[count].classList.contains('methodCont')){
+//                         indDCard2.children[count].classList.toggle('methodContNone');
+//                     }
+//                 }
+//             }
+//         })
+//     })
+// });
 
 ////////////////////
 //Mutation Observers 
