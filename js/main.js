@@ -208,7 +208,17 @@ revealButtons.forEach(indButton => {
             if(indDCard2.classList.contains('drinkCardIntro') || indDCard2.classList.contains('drinkCardSlideIn')){
                 for(let count = 0; count <indDCard2.children.length; count++){
                     if(indDCard2.children[count].classList.contains('methodCont')){
-                        indDCard2.children[count].classList.toggle('methodContNone');
+                        if(!indDCard2.children[count].classList.contains('methodTransitionClass')){
+                            if(indDCard2.children[count].classList.contains('methodTransitionExitClass')) {
+                                indDCard2.children[count].classList.toggle('methodTransitionExitClass');
+                            }
+                            return indDCard2.children[count].classList.toggle('methodTransitionClass');
+                        }else{
+                            if(indDCard2.children[count].classList.contains('methodTransitionClass')){
+                                indDCard2.children[count].classList.toggle('methodTransitionClass');
+                            }
+                            indDCard2.children[count].classList.toggle('methodTransitionExitClass');
+                        }
                     }
                 }
             }
@@ -239,8 +249,11 @@ revealButtons.forEach(indButton => {
 const observer = new MutationObserver(function() {
     let methodContainers = document.querySelectorAll('.methodCont')
     methodContainers.forEach(indMCont => {
-        if(!indMCont.classList.contains('methodContNone')){
-            indMCont.classList.toggle('methodContNone')
+        if(indMCont.classList.contains('methodTransitionClass')){
+            indMCont.classList.toggle('methodTransitionClass')
+        }
+        if(indMCont.classList.contains('methodTransitionExitClass')){
+            indMCont.classList.toggle('methodTransitionExitClass')
         }
     })
 })
