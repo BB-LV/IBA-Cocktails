@@ -37,7 +37,7 @@
 /* BASE STYLES
 /*******************************************/
 html {
-     font-size: 10px;
+     font-size: 6px;
      width: 100%;
 }
 
@@ -404,8 +404,9 @@ header>h3>a {
      display: flex;
      justify-content: center;
      align-self: flex-end;
-     translate: 200%;
+     translate: 129%;
      z-index: 1;
+     scale: 0.6;
 }
 
 /* Drink Card Body */
@@ -490,7 +491,7 @@ header>h3>a {
 
 .method {
      display: flex;
-     font-size: 2rem;
+     font-size: 1.5rem;
      text-align: center;
      color:white;
      width: 75%;
@@ -580,8 +581,9 @@ Inspired from *https://proto.io/freebies/onoff/*
      position: absolute;
      width: 68px;
      left: 0px;
-     top: -15%;
+     top: -20%;
      -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+     scale:0.6;
  }
  .onoffswitch-checkbox {
      position: absolute;
@@ -635,9 +637,9 @@ Inspired from *https://proto.io/freebies/onoff/*
      text-align:center; 
      padding:8px 5px; 
      border:solid 1px #000000; 
-     -webkit-border-radius:4px;
-     -moz-border-radius:4px; 
-     border-radius: 4px; 
+     -webkit-border-radius:10px;
+     -moz-border-radius:10px; 
+     border-radius: 10px; 
      font:14px Arial, Helvetica, sans-serif; 
      font-weight:bold; 
      color:#ffffff; 
