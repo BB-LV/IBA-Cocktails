@@ -584,6 +584,7 @@ Inspired from *https://proto.io/freebies/onoff/*
      top: -20%;
      -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
      scale:0.6;
+     z-index: 1;
  }
  .onoffswitch-checkbox {
      position: absolute;
