@@ -640,14 +640,123 @@ Inspired from *https://proto.io/freebies/onoff/*
      -webkit-border-radius:10px;
      -moz-border-radius:10px; 
      border-radius: 10px; 
-     font:14px Arial, Helvetica, sans-serif; 
+     font:1.8rem Arial, Helvetica, sans-serif; 
      font-weight:bold; 
      color:#ffffff; 
      background:#868686; 
      -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff; 
      -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;  
      box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;  
-      
      text-shadow: 2px 2px 0px #000000; 
      filter: dropshadow(color=#000000, offx=2, offy=2);
+}
+
+@media (min-width:526px) and (max-width:1000px) {
+     html {
+          font-size:4px;
+     }
+     .onoffswitch {
+          scale: 0.3;
+          left: -17px;
+          top: -28%;
+     }
+}
+
+@media (min-height:250px) and (max-height:500px) {
+     html {
+          font-size:4px;
+     }
+     .onoffswitch {
+          scale: 0.3;
+          left: -17px;
+          top: -28%;
+     }
+}
+
+@media screen and (max-width: 525px) {
+     html {
+          font-size:4px;
+     }
+     .onoffswitch {
+          scale: 0.3;
+          left: -17px;
+          top: -28%;
+     }
+     .headingContainer {
+          position:static;
+          top:auto;
+          scale: 0.8;
+     }
+     .headingContainerMovedF {
+          animation: none;
+     }
+     .headingContainerMovedInitial {
+          animation: none;
+     }
+     .clickedBig3Initial {
+          scale:1;
+     }
+     .drinkArrayInitial {
+          animation: none;
+     }
+     .big3ContHover:hover {
+          scale: 1;
+          transform: none;
+     }
+     .headingContainerHover:hover{
+          perspective:none;
+     }
+     .drinkArray {
+          width: 90vw;
+          height:fit-content;
+     }
+     .drinkCardCont {
+          position:relative;
+          scale: 0.9;
+          translate: 0px 200px;
+     }
+}
+
+@media screen and (max-height:249px) {
+     html {
+          font-size:4px;
+     }
+     .onoffswitch {
+          scale: 0.3;
+          left: -17px;
+          top: -28%;
+     }
+     .headingContainer {
+          position:static;
+          top:auto;
+          scale: 0.8;
+     }
+     .headingContainerMovedF {
+          animation: none;
+     }
+     .headingContainerMovedInitial {
+          animation: none;
+     }
+     .clickedBig3Initial {
+          scale:1;
+     }
+     .drinkArrayInitial {
+          animation: none;
+     }
+     .big3ContHover:hover {
+          scale: 1;
+          transform: none;
+     }
+     .headingContainerHover:hover{
+          perspective:none;
+     }
+     .drinkArray {
+          width: 90vw;
+          height:fit-content;
+     }
+     .drinkCardCont {
+          position:relative;
+          scale: 0.9;
+          translate: 0px 220px;
+     }
 }
